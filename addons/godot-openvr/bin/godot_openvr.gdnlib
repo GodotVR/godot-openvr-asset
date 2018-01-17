@@ -1,0 +1,17 @@
+[general]
+
+singleton=true
+load_once=true
+symbol_prefix="godot_openvr_"
+
+[entry]
+
+X11.64="res://addons/godot-openvr/bin/libgodot_openvr.so"
+Windows.64="res://addons/godot-openvr/bin/godot_openvr.dll"
+OSX.64="res://addons/godot-openvr/bin/libgodot_openvr.dylib"
+
+[dependencies]
+
+X11.64=["res://addons/godot-openvr/bin/libopenvr_api.so"]
+Windows=["res://addons/godot-openvr/bin/openvr_api.dll"]
+OSX.64=[""]
