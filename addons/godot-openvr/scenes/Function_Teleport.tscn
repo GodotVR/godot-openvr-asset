@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://addons/godot-openvr/teleport_arrow.png" type="Texture" id=1]
-[ext_resource path="res://addons/godot-openvr/teleport_target.png" type="Texture" id=2]
+[ext_resource path="res://addons/godot-openvr/images/teleport_arrow.png" type="Texture" id=1]
+[ext_resource path="res://addons/godot-openvr/images/teleport_target.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=1]
 
