@@ -5,6 +5,9 @@ The scenes subfolder contains a number of godot scenes that help you set up your
 For basic functionality start with adding ovr_first_person.tcn to your project.
 Also make sure that vsync is turned off in your project settings.
 
+Source code for this module can be found here:
+https://github.com/BastiaanOlij/godot_openvr
+
 Using the main viewport
 -----------------------
 The ARVR server module requires a viewport to be configured as the ARVR viewport. If you chose to use the main viewport an aspect ratio corrected copy of the left eye will be rendered to the viewport automatically.
@@ -30,8 +33,6 @@ if interface:
 	interface.initialize()
 ```
 
-(note that this is still experimental)
-
 HDR support
 -----------
 HDR support for the headset is currently not available. OpenVR does not accept Godots HDR color buffer for rendering. We're still investigating this.
@@ -41,3 +42,13 @@ Licensing
 The Godot OpenVR module and the godot scenes in this add on are all supplied under an "unlicense".
 
 The dynamic libraries supplier by Valve fall under Valve's own license. For more information about this license please visit https://github.com/ValveSoftware/openvr
+
+About this repository
+---------------------
+This repository was created by and is maintained by Bastiaan Olij a.k.a. Mux213
+
+You can follow me on twitter for regular updates here:
+https://twitter.com/mux213
+
+Videos about my work with Godot including tutorials on working with VR in Godot can by found on my youtube page:
+https://www.youtube.com/channel/UCrbLJYzJjDf2p-vJC011lYw
