@@ -6,7 +6,10 @@ For basic functionality start with adding ovr_first_person.tcn to your project.
 Also make sure that vsync is turned off in your project settings.
 
 Source code for this module can be found here:
-https://github.com/BastiaanOlij/godot_openvr
+https://github.com/GodotVR/godot_openvr
+
+Also note that we have a support asset containing a number of useful scenes to get you going building VR applications in Godot:
+https://github.com/GodotVR/godot-vr-common
 
 Using the main viewport
 -----------------------
@@ -39,9 +42,10 @@ HDR support for the headset is currently not available. OpenVR does not accept G
 
 Licensing
 ---------
-The Godot OpenVR module and the godot scenes in this add on are all supplied under an "unlicense".
+The Godot OpenVR module and the godot scenes in this add on are all supplied under an MIT License.
 
-The dynamic libraries supplier by Valve fall under Valve's own license. For more information about this license please visit https://github.com/ValveSoftware/openvr
+The dynamic libraries supplier by Valve fall under Valve's own license.
+For more information about this license please visit https://github.com/ValveSoftware/openvr
 
 About this repository
 ---------------------
