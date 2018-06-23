@@ -26,7 +26,11 @@ if interface and interface.initialize():
 
 Using a separate viewport
 -------------------------
-If you want control over the output on screen so you can show something independent on the desktop you can add a viewport to your scene and set the arvr property to true and hdr property to false. It is important that the ARVR nodes are child nodes within this viewport. You can add a normal camera to your scene to render a spectator view or turn the main viewport into a 2D viewport and save some rendering overhead.
+If you want control over the output on screen so you can show something independent on the desktop you can add a viewport to your scene.
+
+Make sure that you turn the arvr property of this viewport to true and the HDR property to false. Also make sure that both the clear mode and update mode are set to always.
+
+You can add a normal camera to your scene to render a spectator view or turn the main viewport into a 2D viewport and save some rendering overhead.
 
 You can now simplify you initialisation code on your root node to:
 
@@ -38,7 +42,7 @@ if interface:
 
 HDR support
 -----------
-HDR support for the headset is currently not available. OpenVR does not accept Godots HDR color buffer for rendering. We're still investigating this.
+HDR support for the headset is currently not available. OpenVR does not accept Godots HDR color buffer for rendering. A solution is currently under review for Godot 3.1
 
 Licensing
 ---------
