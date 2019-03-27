@@ -1,6 +1,8 @@
 # Godot OpenVR GDNative module
 This module is provided as is, all files are contained within the addons/godot-openvr-asset folder
 
+This module requires **Godot 3.1 or newer** to run.
+
 The scenes subfolder contains a number of godot scenes that help you set up your project. 
 For basic functionality start with adding ovr_first_person.tcn to your project.
 Also make sure that vsync is turned off in your project settings.
@@ -20,7 +22,16 @@ You will need to add the following code to a script on your root node:
 ```
 var interface = ARVRServer.find_interface("OpenVR")
 if interface and interface.initialize():
+	# Tell our viewport it is the arvr viewport:
 	get_viewport().arvr = true
+
+	# turn off vsync, we'll be using the headsets vsync
+	OS.vsync_enabled = false
+		
+	# change our physics fps
+	Engine.target_fps = 90
+
+	# make sure HDR rendering is off (not applicable for GLES2 renderer)
 	get_viewport().hdr = false
 ```
 
@@ -36,13 +47,20 @@ You can now simplify you initialisation code on your root node to:
 
 ```
 var interface = ARVRServer.find_interface("OpenVR")
-if interface:
-	interface.initialize()
+if interface and interface.initialize()
+	# turn off vsync, we'll be using the headsets vsync
+	OS.vsync_enabled = false
+		
+	# change our physics fps
+	Engine.target_fps = 90
+
+	# make sure HDR rendering is off (not applicable for GLES2 renderer)
+	get_viewport().hdr = false
 ```
 
 HDR support
 -----------
-HDR support for the headset is currently not available. OpenVR does not accept Godots HDR color buffer for rendering. A solution is currently under review for Godot 3.1
+HDR support for the headset is currently not available. OpenVR does not accept Godots HDR color buffer for rendering. A solution is currently under review.
 
 Licensing
 ---------
@@ -59,4 +77,4 @@ You can follow me on twitter for regular updates here:
 https://twitter.com/mux213
 
 Videos about my work with Godot including tutorials on working with VR in Godot can by found on my youtube page:
-https://www.youtube.com/channel/UCrbLJYzJjDf2p-vJC011lYw
+https://www.youtube.com/BastiaanOlij
