@@ -1,7 +1,7 @@
 # Godot OpenVR GDNative module
 This module is provided as is, all files are contained within the addons/godot-openvr-asset folder
 
-This module requires **Godot 3.1 or newer** to run.
+This module requires **Godot 3.1 or newer** to run, **Godot 3.2** is highly recommended.
 
 The scenes subfolder contains a number of godot scenes that help you set up your project. 
 For basic functionality start with adding ovr_first_person.tcn to your project.
@@ -13,54 +13,14 @@ https://github.com/GodotVR/godot_openvr
 Also note that we have a support asset containing a number of useful scenes to get you going building VR applications in Godot:
 https://github.com/GodotVR/godot-vr-common
 
-Using the main viewport
------------------------
-The ARVR server module requires a viewport to be configured as the ARVR viewport. If you chose to use the main viewport an aspect ratio corrected copy of the left eye will be rendered to the viewport automatically.
-
-You will need to add the following code to a script on your root node:
-
-```
-var interface = ARVRServer.find_interface("OpenVR")
-if interface and interface.initialize():
-	# Tell our viewport it is the arvr viewport:
-	get_viewport().arvr = true
-
-	# turn off vsync, we'll be using the headsets vsync
-	OS.vsync_enabled = false
-		
-	# change our physics fps
-	Engine.target_fps = 90
-
-	# make sure HDR rendering is off (not applicable for GLES2 renderer)
-	get_viewport().hdr = false
-```
-
-Using a separate viewport
--------------------------
-If you want control over the output on screen so you can show something independent on the desktop you can add a viewport to your scene.
-
-Make sure that you turn the arvr property of this viewport to true and the HDR property to false. Also make sure that both the clear mode and update mode are set to always.
-
-You can add a normal camera to your scene to render a spectator view or turn the main viewport into a 2D viewport and save some rendering overhead.
-
-You can now simplify you initialisation code on your root node to:
-
-```
-var interface = ARVRServer.find_interface("OpenVR")
-if interface and interface.initialize()
-	# turn off vsync, we'll be using the headsets vsync
-	OS.vsync_enabled = false
-		
-	# change our physics fps
-	Engine.target_fps = 90
-
-	# make sure HDR rendering is off (not applicable for GLES2 renderer)
-	get_viewport().hdr = false
-```
+Documentation on using this asset can be found here:
+https://github.com/GodotVR/godot-openvr-asset/wiki
 
 HDR support
 -----------
-HDR support for the headset is currently not available. OpenVR does not accept Godots HDR color buffer for rendering. A solution is currently under review.
+HDR support was added to OpenVR but requires the keep_3d_linear flag added to Godot 3.2. This will ensure rendering inside of the headset is correct. The preview on screen will look darker. You can solve this by using a separate viewport.
+
+When using Godot 3.1 you need to either use the GLES2 renderer or turn HDR off on the viewport used to render to the HMD.
 
 Licensing
 ---------
